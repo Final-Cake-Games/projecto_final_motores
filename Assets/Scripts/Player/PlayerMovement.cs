@@ -10,16 +10,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
-    float maxSpeed = 10f;
+    float maxSpeed = 15f; // Metros por segundo
+    [SerializeField]
+    float startSpeed = 2.5f; // Metros por segundo
+    [SerializeField]
+    float acceleration = 2f;
     [SerializeField]
     float steerSpeed = 100f;
     [SerializeField]
-    float maxRotationAngle = 60f;
+    float maxRotationAngle = 45f;
+
+    float currentSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        currentSpeed = startSpeed; // Aumentar até max speed gradualmente
     }
 
     // Update is called once per frame
@@ -30,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Verifica se crashou para aplicar drag para parar o carro caso contrario moveforward
+        // Verifica se crashou para destruir o carro caso contrario moveforward
         MoveForward();
     }
 
@@ -67,8 +73,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveForward()
     {
-        rb.drag = 0;
-
-        rb.AddForce(transform.forward * maxSpeed);
+        rb.velocity = transform.forward * currentSpeed;
     }
 }

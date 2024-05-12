@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3485964756255434277}
-  maxSpeed: 10
+  maxSpeed: 25
+  acceleration: 2
   steerSpeed: 100
-  maxRotationAngle: 60
+  maxRotationAngle: 45
 --- !u!1001 &1456118120197797953
 PrefabInstance:
   m_ObjectHideFlags: 0
