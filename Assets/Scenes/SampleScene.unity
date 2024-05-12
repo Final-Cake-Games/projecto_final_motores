@@ -971,16 +971,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8410082450333420274, guid: c6c1876551a3a4940907de69e2010086, type: 3}
-      propertyPath: maxSpeed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410082450333420274, guid: c6c1876551a3a4940907de69e2010086, type: 3}
       propertyPath: acceleration
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410082450333420274, guid: c6c1876551a3a4940907de69e2010086, type: 3}
-      propertyPath: maxRotationAngle
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
