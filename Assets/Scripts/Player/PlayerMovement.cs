@@ -14,11 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float startSpeed = 2.5f; // Metros por segundo
     [SerializeField]
-    float acceleration = 2f;
+    float steerSpeed = 150f;
     [SerializeField]
-    float steerSpeed = 100f;
-    [SerializeField]
-    float maxRotationAngle = 45f;
+    float maxRotationAngle = 30f;
 
     float currentSpeed;
 
