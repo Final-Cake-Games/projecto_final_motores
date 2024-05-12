@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveForward()
     {
-        rb.velocity = transform.forward * currentSpeed;
+        // Utiliza a rotação aplicada em Steer() para obter a direção 'em frente' e multiplica essa direção pela velocidade atual
+        rb.velocity = transform.forward * currentSpeed; 
     }
 }
