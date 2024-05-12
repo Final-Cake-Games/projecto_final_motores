@@ -105,7 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1263cb8047ae844b2cebe8f0e77b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 3485964756255434277}
+  maxSpeed: 10
   steerSpeed: 100
+  maxRotationAngle: 60
 --- !u!1001 &1456118120197797953
 PrefabInstance:
   m_ObjectHideFlags: 0

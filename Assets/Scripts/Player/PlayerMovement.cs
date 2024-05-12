@@ -7,7 +7,10 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField]
+    Rigidbody rb;
+    [SerializeField]
+    float maxSpeed = 10f;
     [SerializeField]
     float steerSpeed = 100f;
     [SerializeField]
@@ -23,6 +26,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Steer();
+    }
+
+    void FixedUpdate()
+    {
+        // Verifica se crashou para aplicar drag para parar o carro caso contrario moveforward
+        MoveForward();
     }
 
 
@@ -54,5 +63,12 @@ public class PlayerMovement : MonoBehaviour
             yRotation = 360f - maxRotationAngle + 0.1f;
 
         transform.rotation = Quaternion.Euler(0f, yRotation, 0f); // Atualizar a rotação.
+    }
+
+    void MoveForward()
+    {
+        rb.drag = 0;
+
+        rb.AddForce(transform.forward * maxSpeed);
     }
 }
