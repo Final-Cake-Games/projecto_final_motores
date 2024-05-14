@@ -529,6 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sectionPrefabs:
   - {fileID: 2815909623435534546, guid: f4899398e74c991439690452c58f020e, type: 3}
+  - {fileID: 2815909623435534546, guid: 3a8305e82bdd0e7479913ee0d48b0bbe, type: 3}
 --- !u!4 &1023276563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2701043554832662221, guid: c6c1876551a3a4940907de69e2010086, type: 3}
