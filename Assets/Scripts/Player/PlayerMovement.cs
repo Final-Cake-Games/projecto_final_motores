@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float startSpeed = 2.5f; // Metros por segundo
     [SerializeField]
+    float accelTime = 60f; // Segundos até maxSpeed
+    [SerializeField]
     float steerSpeed = 150f;
     [SerializeField]
     float maxRotationAngle = 30f;
 
+    float timeElapsed;
     float currentSpeed;
 
     // Start is called before the first frame update
@@ -36,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     {
         // Verifica se crashou para destruir o carro caso contrario moveforward
         MoveForward();
+
+        if (currentSpeed < maxSpeed)
+            Accelerate(Time.deltaTime);
     }
 
 
@@ -73,5 +79,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Utiliza a rotação aplicada em Steer() para obter a direção 'em frente' e multiplica essa direção pela velocidade atual
         rb.velocity = transform.forward * currentSpeed; 
+    }
+
+    void Accelerate(float deltaTime)
+    {
+        currentSpeed = Mathf.Lerp(startSpeed, maxSpeed, timeElapsed / accelTime);
+        timeElapsed += deltaTime;
     }
 }
