@@ -685,6 +685,7 @@ MonoBehaviour:
   sectionPrefabs:
   - {fileID: 2815909623435534546, guid: f4899398e74c991439690452c58f020e, type: 3}
   - {fileID: 8430943036566580125, guid: af47bd7eaa0759b4e8d806c300ffb7dd, type: 3}
+  - {fileID: 6772480840476711771, guid: 9368ae5e80257584baceb68c2f7bdbe5, type: 3}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
