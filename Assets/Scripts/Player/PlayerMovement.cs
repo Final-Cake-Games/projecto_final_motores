@@ -23,10 +23,13 @@ public class PlayerMovement : MonoBehaviour
     float timeElapsed;
     float currentSpeed;
 
+    ExplodeHandler explodeHandlerScript;
+
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = startSpeed; // Aumentar até max speed gradualmente
+        explodeHandlerScript = GetComponent<ExplodeHandler>();
     }
 
     // Update is called once per frame
@@ -38,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Verifica se crashou para destruir o carro caso contrario moveforward
-        MoveForward();
+        if (!explodeHandlerScript.exploded)
+            MoveForward();
+        else
+            rb.velocity = Vector3.zero;
 
         if (currentSpeed < maxSpeed)
             Accelerate(Time.deltaTime);
@@ -85,5 +91,13 @@ public class PlayerMovement : MonoBehaviour
     {
         currentSpeed = Mathf.Lerp(startSpeed, maxSpeed, timeElapsed / accelTime);
         timeElapsed += deltaTime;
+    }
+
+
+    // Eventos
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        explodeHandlerScript.Explode(currentSpeed);
     }
 }
