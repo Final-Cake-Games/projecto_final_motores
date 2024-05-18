@@ -48,7 +48,7 @@ public class ExplodeHandler : MonoBehaviour
             rb.gameObject.SetActive(true);
             rb.isKinematic = false;
             rb.interpolation = RigidbodyInterpolation.Interpolate;
-
+            
             rb.AddForce(Vector3.forward * externalForce * 100, ForceMode.Force);
             rb.AddTorque(Random.insideUnitSphere * 50f, ForceMode.Impulse);
 

@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -44,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (!explodeHandlerScript.exploded)
             MoveForward();
         else
-            rb.velocity = Vector3.zero;
+            rb.velocity = UnityEngine.Vector3.zero;
 
         if (currentSpeed < maxSpeed)
             Accelerate(Time.deltaTime);
@@ -78,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         else if (yRotation > 180f && yRotation < 360f - maxRotationAngle)
             yRotation = 360f - maxRotationAngle + 0.1f;
 
-        transform.rotation = Quaternion.Euler(0f, yRotation, 0f); // Atualizar a rotação.
+        transform.rotation = UnityEngine.Quaternion.Euler(0f, yRotation, 0f); // Atualizar a rotação. 
     }
 
     void MoveForward()
