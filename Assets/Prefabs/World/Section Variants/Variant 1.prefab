@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCCar
       objectReference: {fileID: 0}
+    - target: {fileID: 1926517974858581509, guid: 012edb3d4c1871f4eb460f97fa717840, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8765466227910421844, guid: 012edb3d4c1871f4eb460f97fa717840, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.276
@@ -2500,6 +2504,10 @@ PrefabInstance:
     - target: {fileID: 1926517974858581509, guid: 012edb3d4c1871f4eb460f97fa717840, type: 3}
       propertyPath: m_Name
       value: NPCCar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926517974858581509, guid: 012edb3d4c1871f4eb460f97fa717840, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8765466227910421844, guid: 012edb3d4c1871f4eb460f97fa717840, type: 3}
       propertyPath: m_LocalPosition.x
