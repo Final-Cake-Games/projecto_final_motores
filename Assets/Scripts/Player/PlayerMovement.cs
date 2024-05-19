@@ -78,9 +78,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (currentSpeed < maxSpeed && !explodeHandlerScript.exploded)
+        {
             Accelerate(Time.deltaTime);
             if (currentSpeed < maxSpeed)
                 sfxPlayer.pitch += 0.01f * Time.deltaTime;
+        }
     }
 
 
@@ -140,6 +142,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        explodeHandlerScript.Explode(currentSpeed);
+        if (collision.gameObject.tag != "Fuel")
+        {
+            explodeHandlerScript.Explode(currentSpeed);
+        }
     }
 }
