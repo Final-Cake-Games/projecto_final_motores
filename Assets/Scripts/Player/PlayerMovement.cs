@@ -18,15 +18,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float maxRotationAngle = 30f;
 
+    bool playedCrash = false;
+
     float timeElapsed;
     public float currentSpeed;
     public float distanceTravaled = 0f;
 
     public ExplodeHandler explodeHandlerScript;
+    
+    [SerializeField]
+    AudioClip engine;
+    [SerializeField]
+    AudioClip crash;
+    
+    AudioSource sfxPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
+        sfxPlayer = GetComponent<AudioSource>();
+        sfxPlayer.clip = engine;
+        sfxPlayer.Play();
+        
+
         distanceTravaled = 0;
         currentSpeed = startSpeed; // Aumentar até max speed gradualmente
         explodeHandlerScript = GetComponent<ExplodeHandler>();
@@ -47,8 +61,22 @@ public class PlayerMovement : MonoBehaviour
             distanceTravaled += currentSpeed * Time.deltaTime / 1000;
         }
         else
+        {
             rb.velocity = UnityEngine.Vector3.zero;
             currentSpeed = 0;
+            
+            
+            sfxPlayer.loop = false;
+            sfxPlayer.clip = crash;
+            if (!playedCrash)
+            {
+                sfxPlayer.Play();
+                playedCrash = true;
+            }
+            
+            
+            
+        }
 
         if (currentSpeed < maxSpeed && !explodeHandlerScript.exploded)
             Accelerate(Time.deltaTime);
