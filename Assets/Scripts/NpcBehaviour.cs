@@ -30,6 +30,7 @@ public class NpcBehaviour : MonoBehaviour
     void Update()
     {
         if (canMove)
-            transform.position += new Vector3(0, 0, 0.5f) * Time.deltaTime;
+            //transform.position += new Vector3(0, 0, 0.5f) * Time.deltaTime;
+            transform.Translate(Vector3.forward * 0.5f * Time.deltaTime);
     }
 }
