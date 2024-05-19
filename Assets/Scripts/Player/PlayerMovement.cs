@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -21,12 +19,17 @@ public class PlayerMovement : MonoBehaviour
     float maxRotationAngle = 30f;
 
     float timeElapsed;
-    float currentSpeed;
+    public float currentSpeed;
+    public float distanceTravaled = 0f;
+
+    public ExplodeHandler explodeHandlerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        distanceTravaled = 0;
         currentSpeed = startSpeed; // Aumentar até max speed gradualmente
+        explodeHandlerScript = GetComponent<ExplodeHandler>();
     }
 
     // Update is called once per frame
@@ -38,9 +41,16 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Verifica se crashou para destruir o carro caso contrario moveforward
-        MoveForward();
+        if (!explodeHandlerScript.exploded)
+        {
+            MoveForward();
+            distanceTravaled += currentSpeed * Time.deltaTime / 1000;
+        }
+        else
+            rb.velocity = UnityEngine.Vector3.zero;
+            currentSpeed = 0;
 
-        if (currentSpeed < maxSpeed)
+        if (currentSpeed < maxSpeed && !explodeHandlerScript.exploded)
             Accelerate(Time.deltaTime);
     }
 
@@ -72,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         else if (yRotation > 180f && yRotation < 360f - maxRotationAngle)
             yRotation = 360f - maxRotationAngle + 0.1f;
 
-        transform.rotation = Quaternion.Euler(0f, yRotation, 0f); // Atualizar a rotação.
+        transform.rotation = UnityEngine.Quaternion.Euler(0f, yRotation, 0f); // Atualizar a rotação. 
     }
 
     void MoveForward()
@@ -85,5 +95,13 @@ public class PlayerMovement : MonoBehaviour
     {
         currentSpeed = Mathf.Lerp(startSpeed, maxSpeed, timeElapsed / accelTime);
         timeElapsed += deltaTime;
+    }
+
+
+    // Eventos
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        explodeHandlerScript.Explode(currentSpeed);
     }
 }
