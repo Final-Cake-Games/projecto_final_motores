@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float currentSpeed;
     public float distanceTravaled = 0f;
 
-    ExplodeHandler explodeHandlerScript;
+    public ExplodeHandler explodeHandlerScript;
 
     // Start is called before the first frame update
     void Start()
