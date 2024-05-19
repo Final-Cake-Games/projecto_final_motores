@@ -34,6 +34,7 @@ public class UI : MonoBehaviour
         exitButton = root.Q<Button>("exit");
 
         fuel = root.Q<ProgressBar>("fuel");
+        fuel.visible = true;
 
         restartButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         exitButton.clicked += () => Application.Quit();
@@ -49,6 +50,7 @@ public class UI : MonoBehaviour
 
         if (playerMovementScript.explodeHandlerScript.exploded)
         {
+            fuel.visible = false;
             gameOverScreen.visible = true;
         }
     }

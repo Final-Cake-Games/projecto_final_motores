@@ -9,12 +9,15 @@ public class Jerycan : MonoBehaviour
     [SerializeField]
     float restoreAmount = 50f;
 
+    AudioSource sfx;
+
     FuelHandler fuelHandler;
 
     private void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
         fuelHandler = player.GetComponentInChildren<FuelHandler>();
+        sfx = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,6 +25,7 @@ public class Jerycan : MonoBehaviour
         
         if (other.gameObject.name == "carro")
         {
+            sfx.Play();
             fuelHandler.AddFuel(restoreAmount);
         }
     }
