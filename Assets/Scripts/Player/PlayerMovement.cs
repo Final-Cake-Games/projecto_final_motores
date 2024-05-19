@@ -97,9 +97,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey("a"))
                 yRotation += -steerSpeed * Time.deltaTime;
-
-            if (Input.GetKey("d"))
+            else if (Input.GetKey("d"))
                 yRotation += steerSpeed * Time.deltaTime;
+            else
+            {
+                if (yRotation != 0 || yRotation != 360){
+                    if (yRotation > 180)
+                        yRotation = Mathf.Lerp(yRotation, 360, 2.5f * Time.deltaTime);
+                    else if (yRotation < 180)
+                        yRotation = Mathf.Lerp(yRotation, 0, 2.5f * Time.deltaTime);
+                }
+            }
+                
         }
         /*
             Se o ângulo atual superar o máximo direita e for inferior a 180º
