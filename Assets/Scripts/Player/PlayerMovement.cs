@@ -19,13 +19,15 @@ public class PlayerMovement : MonoBehaviour
     float maxRotationAngle = 30f;
 
     float timeElapsed;
-    float currentSpeed;
+    public float currentSpeed;
+    public float distanceTravaled = 0f;
 
     ExplodeHandler explodeHandlerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        distanceTravaled = 0;
         currentSpeed = startSpeed; // Aumentar até max speed gradualmente
         explodeHandlerScript = GetComponent<ExplodeHandler>();
     }
@@ -40,11 +42,15 @@ public class PlayerMovement : MonoBehaviour
     {
         // Verifica se crashou para destruir o carro caso contrario moveforward
         if (!explodeHandlerScript.exploded)
+        {
             MoveForward();
+            distanceTravaled += currentSpeed * Time.deltaTime / 1000;
+        }
         else
             rb.velocity = UnityEngine.Vector3.zero;
+            currentSpeed = 0;
 
-        if (currentSpeed < maxSpeed)
+        if (currentSpeed < maxSpeed && !explodeHandlerScript.exploded)
             Accelerate(Time.deltaTime);
     }
 
