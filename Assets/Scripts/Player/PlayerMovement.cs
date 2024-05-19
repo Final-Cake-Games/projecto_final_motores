@@ -70,16 +70,17 @@ public class PlayerMovement : MonoBehaviour
             sfxPlayer.clip = crash;
             if (!playedCrash)
             {
+                sfxPlayer.pitch = 1f;
                 sfxPlayer.Play();
                 playedCrash = true;
             }
-            
-            
             
         }
 
         if (currentSpeed < maxSpeed && !explodeHandlerScript.exploded)
             Accelerate(Time.deltaTime);
+            if (currentSpeed < maxSpeed)
+                sfxPlayer.pitch += 0.01f * Time.deltaTime;
     }
 
 
