@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="Screen" style="flex-grow: 1; align-items: center; justify-content: flex-end; margin-bottom: 0; margin-top: 0; background-color: rgba(0, 0, 0, 0);">
+        <ui:ProgressBar value="100" title="FUEL" name="fuel" />
         <ui:VisualElement name="GameOver" style="flex-grow: 1; display: flex; visibility: hidden; align-items: center; justify-content: space-between; align-self: stretch; margin-top: 25px; margin-right: 25px; margin-bottom: 25px; margin-left: 25px; background-color: rgba(10, 41, 1, 0.68); border-left-color: rgb(255, 246, 0); border-right-color: rgb(255, 246, 0); border-top-color: rgb(255, 246, 0); border-bottom-color: rgb(255, 246, 0); border-top-width: 5px; border-right-width: 0; border-bottom-width: 5px; border-left-width: 0;">
             <ui:Label tabindex="-1" text="GAME OVER" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-self: center; margin-top: 50px; color: rgb(255, 255, 255); -unity-text-align: upper-center; -unity-font-style: bold; font-size: 54px;" />
             <ui:VisualElement style="flex-grow: initial; margin-bottom: 50px;">

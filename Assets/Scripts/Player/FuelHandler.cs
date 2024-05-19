@@ -13,7 +13,7 @@ public class FuelHandler : MonoBehaviour
     [SerializeField]
     float restoreAmount = 50f;
 
-    float currentFuel;
+    public float currentFuel;
     
     // Start is called before the first frame update
     void Start()

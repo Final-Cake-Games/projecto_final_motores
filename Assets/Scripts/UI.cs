@@ -11,12 +11,17 @@ public class UI : MonoBehaviour
     [SerializeField]
     PlayerMovement playerMovementScript;
 
+    [SerializeField]
+    FuelHandler fuelHandlerScript;
+
     Label kmh;
     Label km;
     VisualElement gameOverScreen;
 
     Button restartButton;
     Button exitButton;
+
+    ProgressBar fuel;
 
     void Start()
     {
@@ -28,6 +33,8 @@ public class UI : MonoBehaviour
         restartButton = root.Q<Button>("retry");
         exitButton = root.Q<Button>("exit");
 
+        fuel = root.Q<ProgressBar>("fuel");
+
         restartButton.clicked += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         exitButton.clicked += () => Application.Quit();
 
@@ -38,6 +45,7 @@ public class UI : MonoBehaviour
     {
         kmh.text = (playerMovementScript.currentSpeed * 18 / 5).ToString("F0");
         km.text = playerMovementScript.distanceTravaled.ToString("F2");
+        fuel.value = fuelHandlerScript.currentFuel;
 
         if (playerMovementScript.explodeHandlerScript.exploded)
         {

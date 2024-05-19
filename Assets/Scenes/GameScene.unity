@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementScript: {fileID: 810178364}
+  fuelHandlerScript: {fileID: 810178368}
 --- !u!1 &595501532
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +749,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd1263cb8047ae844b2cebe8f0e77b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &810178368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4728768624483637266, guid: c6c1876551a3a4940907de69e2010086, type: 3}
+  m_PrefabInstance: {fileID: 810178361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006f2b10fdbfc6648ba3e3f7d20f652b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &963194225
