@@ -53,4 +53,28 @@ public class UI : MonoBehaviour
             gameOverScreen.visible = true;
         }
     }
+
+    void Update()
+    {
+         if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                TogglePause();
+            }
+    }
+
+    void TogglePause()
+    {
+        print(Time.timeScale);
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+            gameOverScreen.visible = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            gameOverScreen.visible = false;
+        }
+        
+    }
 }
