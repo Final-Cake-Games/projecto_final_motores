@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Jerycan : MonoBehaviour
 {
-    
-
     [SerializeField]
     float restoreAmount = 50f;
 
@@ -25,7 +23,9 @@ public class Jerycan : MonoBehaviour
         
         if (other.gameObject.name == "carro")
         {
+            GameObject tank = GameObject.FindWithTag("Fuel");
             sfx.Play();
+            tank.SetActive(false);
             fuelHandler.AddFuel(restoreAmount);
         }
     }
