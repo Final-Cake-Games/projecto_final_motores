@@ -11,9 +11,11 @@ public class Jerycan : MonoBehaviour
 
     FuelHandler fuelHandler;
 
+    GameObject player;
+
     private void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         fuelHandler = player.GetComponentInChildren<FuelHandler>();
         sfx = GetComponent<AudioSource>();
     }
@@ -23,10 +25,10 @@ public class Jerycan : MonoBehaviour
         
         if (other.gameObject.name == "carro")
         {
-            GameObject tank = GameObject.FindWithTag("Fuel");
-            sfx.Play();
-            tank.SetActive(false);
             fuelHandler.AddFuel(restoreAmount);
+            player.GetComponent<PlayerMovement>().PlayPop();
+            GameObject tank = GameObject.FindWithTag("Fuel");
+            tank.SetActive(false);
         }
     }
 }

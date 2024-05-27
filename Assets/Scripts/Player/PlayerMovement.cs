@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     float steerSpeed = 150f;
     [SerializeField]
     float maxRotationAngle = 30f;
+    [SerializeField]
+    AudioSource pop;
 
     bool playedCrash = false;
 
@@ -137,6 +139,10 @@ public class PlayerMovement : MonoBehaviour
         timeElapsed += deltaTime;
     }
 
+    public void PlayPop()
+    {
+        pop.Play();
+    }
 
     // Eventos
 
